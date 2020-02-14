@@ -4,19 +4,19 @@ $("ul").on("click", "li", function(){
 });
 
 //click on trash to delete Todo
-$("ul").on("click", "span", function (e) {
+$("ul").on("click", "span", function (event) {
     //fades out the List clicked on
     $(this).parent().fadeOut(500,function(){
         //removes the list entirely
         $(this).remove();
     });
-    e.stopPropagation();
+    event.stopPropagation();
 });
 
 //add Todo to Todo List
-$("input[type = 'text']").keypress(function(e){
+$("input[type = 'text']").keypress(function(event){
     //if enter key is pressed
-    if(e.which === 13){
+    if(event.which === 13){
         //grab a new todo text from the input
         var todoText = $(this).val();
         $(this).val("");
@@ -25,6 +25,6 @@ $("input[type = 'text']").keypress(function(e){
     }
 });
 
-$(".fa.fa-pencil").click(function() {
+$(".fa-pencil").click(function(){
     $("input[type = 'text']").fadeToggle(); 
-})
+});
