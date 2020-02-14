@@ -3,28 +3,28 @@ $("ul").on("click", "li", function(){
     $(this).toggleClass("completed");
 });
 
-//click on X to delete Todo
-$("ul").on("click", "span", function (event) {
+//click on trash to delete Todo
+$("ul").on("click", "span", function (e) {
     //fades out the List clicked on
-    $(this).parent().fadeOut(500, function(){
+    $(this).parent().fadeOut(500,function(){
         //removes the list entirely
         $(this).remove();
     });
-    event.stopPropagation();
+    e.stopPropagation();
 });
 
 //add Todo to Todo List
-$("input[type = 'text']").keypress(function (e) {
+$("input[type = 'text']").keypress(function(e){
     //if enter key is pressed
-    if (e.which === 13) {
+    if(e.which === 13){
         //grab a new todo text from the input
         var todoText = $(this).val();
         $(this).val("");
         //create a new li and add to ul
-        $("ul").append("<li><span><i class = 'fa fa-trash'</span> " + todoText + "</li>");
+        $("ul").append("<li><span><i class = 'fa fa-trash'></i></span> " + todoText + "</li>");
     }
 });
 
-$(".fa-pencil").click(function() {
+$(".fa.fa-pencil").click(function() {
     $("input[type = 'text']").fadeToggle(); 
 })
